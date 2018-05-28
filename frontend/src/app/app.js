@@ -9,20 +9,14 @@ import gql from 'graphql-tag'
 import '../app.scss'
 
 const client = new ApolloClient({uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"})
-const query = gql `{
-    rates(currency: "USD") {
-      currency
-    }
-  }
-`
 
 export default class App extends React.Component {
     componentDidMount() {
-        client.query({ query }).then(result => console.log('GQL result:', result))
+        // client.query({ query }).then(result => console.log('GQL result:', result))
     }
     render() {
         return <ApolloProvider client={client}>
-            <div><h1>React + Apollo + GraphQL</h1></div>
+            <div className={`app-header`}><h1>React + Apollo + GraphQL</h1></div>
             <Home />
         </ApolloProvider>
     }
