@@ -3,6 +3,8 @@ import {Route, Switch, Link} from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider, Query } from 'react-apollo'
+import Dashboard from './containers/dashboard'
+import Home from './containers/home'
 import gql from 'graphql-tag'
 import '../app.scss'
 
@@ -21,21 +23,7 @@ export default class App extends React.Component {
     render() {
         return <ApolloProvider client={client}>
             <div><h1>React + Apollo + GraphQL</h1></div>
-            <Query query={query}>
-                {({ loading, error, data }) => (
-                    error
-                        ? <Error />
-                        : loading && !data
-                            ? <Loading />
-                            : data
-                                ? (data.rates ||[]).map(({ currency, rate }) => (
-                                    <div key={currency}>
-                                        <p>{`${currency}: ${rate}`}</p>
-                                    </div>    
-                                ))
-                                : null    
-                )}
-            </Query>    
+            <Home />
         </ApolloProvider>
     }
 }
