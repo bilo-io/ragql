@@ -16,3 +16,11 @@ body {
   background: #3D0056;
   color: pink;
 }
+
+.right-links {
+  position: absolute;
+  right: 0;
+  a {
+    margin-right: 1em;
+  }
+}

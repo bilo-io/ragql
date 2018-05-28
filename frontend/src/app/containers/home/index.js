@@ -10,9 +10,14 @@ const query = gql `{
   }
 `
 export default class Home extends Component {
+    componentDidMount () {
+        console.log(this.props)
+    }
     render() {
+        const { match } = this.props
         return (
             <div>
+                <h1>Home</h1>
                 <Query query={query}>
                     {({ loading, error, data }) => (
                         error
